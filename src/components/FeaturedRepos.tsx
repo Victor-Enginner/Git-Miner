@@ -1,6 +1,7 @@
-import { originalFeatured, multiAgentRepos, hackingRepos, codeModelRepos, mediaRepos, govMilitaryRepos, localLLMRepos } from '../data/featured';
+import { originalFeatured, multiAgentRepos, hackingRepos, codeModelRepos, mediaRepos, govMilitaryRepos, localLLMRepos, devToolsRepos } from '../data/featured';
 import type { FeaturedRepo } from '../data/featured';
-import { Star, GitFork, ExternalLink, Zap, Shield, Brain, Code2, Film, Globe, Cpu } from 'lucide-react';
+import { Star, GitFork, ExternalLink, Zap, Shield, Brain, Code2, Film, Globe, Cpu, Wrench } from 'lucide-react';
+import { SpotlightGlow, onSpotlightMove } from './SpotlightGlow';
 
 function formatNumber(num: number): string {
   if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
@@ -20,6 +21,7 @@ const sectionConfig: Record<string, { title: string; icon: React.ReactNode; repo
   'media': { title: 'Mídia: Vídeo, Imagem, Áudio, PDF', icon: <Film className="w-4 h-4 text-pink-400" />, repos: mediaRepos, gradient: 'from-pink-500/20 to-purple-500/20' },
   'gov': { title: 'Gov / Militar / Geopolítico', icon: <Globe className="w-4 h-4 text-blue-400" />, repos: govMilitaryRepos, gradient: 'from-blue-500/20 to-cyan-500/20' },
   'local-llm': { title: 'LLMs Locais - Seu PC Monstro', icon: <Cpu className="w-4 h-4 text-yellow-400" />, repos: localLLMRepos, gradient: 'from-yellow-500/20 to-orange-500/20' },
+  'devtools': { title: 'Dev Tools & Self-Hosted', icon: <Wrench className="w-4 h-4 text-cyan-400" />, repos: devToolsRepos, gradient: 'from-cyan-500/20 to-blue-500/20' },
 };
 
 function RepoCard({ repo, index, sectionGradient }: { repo: FeaturedRepo; index: number; sectionGradient: string }) {
@@ -30,9 +32,11 @@ function RepoCard({ repo, index, sectionGradient }: { repo: FeaturedRepo; index:
       target="_blank"
       rel="noopener noreferrer"
       className="group relative overflow-hidden rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800/50 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gray-600 hover:shadow-2xl"
+      onMouseMove={onSpotlightMove}
     >
       {/* Background glow on hover */}
       <div className={`absolute inset-0 bg-gradient-to-br ${sectionGradient} opacity-0 group-hover:opacity-100 transition-opacity`} />
+      <SpotlightGlow />
       
       <div className="relative">
         {/* Badge */}
