@@ -1,31 +1,17 @@
-import { TimeRange, SortBy, Category } from '../types';
-import { Clock, TrendingUp, Star, Filter } from 'lucide-react';
+import { TimeRange, SortBy } from '../types';
+import { Clock, TrendingUp, Filter } from 'lucide-react';
+import { categories, languages } from '../data/featured';
 
 interface FiltersProps {
   timeRange: TimeRange;
   sortBy: SortBy;
   language: string;
-  category: Category;
+  category: string;
   onTimeRangeChange: (range: TimeRange) => void;
   onSortByChange: (sort: SortBy) => void;
   onLanguageChange: (lang: string) => void;
-  onCategoryChange: (cat: Category) => void;
+  onCategoryChange: (cat: string) => void;
 }
-
-const languages = [
-  'all', 'TypeScript', 'JavaScript', 'Python', 'Rust', 'Go', 
-  'Java', 'C++', 'C#', 'Ruby', 'Swift', 'Kotlin', 'PHP', 'Dart'
-];
-
-const categories: { value: Category; label: string; icon: string }[] = [
-  { value: 'all', label: 'Todos', icon: '🌐' },
-  { value: 'featured', label: 'Destaques', icon: '⭐' },
-  { value: 'ai', label: 'AI / ML', icon: '🧠' },
-  { value: 'devtools', label: 'Dev Tools', icon: '🛠️' },
-  { value: 'web', label: 'Web', icon: '🌍' },
-  { value: 'database', label: 'Database', icon: '🗄️' },
-  { value: 'cloud', label: 'Cloud', icon: '☁️' },
-];
 
 export default function Filters({
   timeRange, sortBy, language, category,

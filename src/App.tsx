@@ -6,15 +6,15 @@ import RepoCard from './components/RepoCard';
 import Stats from './components/Stats';
 import LoadingSkeleton from './components/LoadingSkeleton';
 import { useTrendingRepos } from './hooks/useGitHub';
-import { TimeRange, SortBy, Category } from './types';
-import { AlertCircle, Rocket, Github } from 'lucide-react';
+import { TimeRange, SortBy } from './types';
+import { AlertCircle, Rocket, Github, Flame } from 'lucide-react';
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [timeRange, setTimeRange] = useState<TimeRange>('weekly');
   const [sortBy, setSortBy] = useState<SortBy>('stars');
   const [language, setLanguage] = useState('all');
-  const [category, setCategory] = useState<Category>('all');
+  const [category, setCategory] = useState<string>('all');
 
   const { repos, loading, error, refetch } = useTrendingRepos(timeRange, sortBy, language, category);
 
@@ -58,8 +58,8 @@ export default function App() {
           {/* Hero Section */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 border border-gray-800 rounded-full mb-4">
-              <Rocket className="w-4 h-4 text-orange-400" />
-              <span className="text-sm text-gray-400">Minerando os melhores repos do GitHub</span>
+              <Flame className="w-4 h-4 text-orange-400" />
+              <span className="text-sm text-gray-400">Mineração Massiva de Repositórios Open Source</span>
             </div>
             <h1 className="text-3xl sm:text-4xl font-black text-white mb-2">
               Descubra Repositórios{' '}
@@ -67,17 +67,32 @@ export default function App() {
                 em Alta
               </span>
             </h1>
-            <p className="text-gray-500 text-sm max-w-lg mx-auto">
-              Encontre os projetos open source mais populares, de gigantes da tecnologia e da comunidade.
-              100% gratuito e open source.
+            <p className="text-gray-500 text-sm max-w-2xl mx-auto mb-4">
+              AI Agents • Red Team / Ethical Hacking • Code Models • Multi-Agentes • Geração de Mídia •
+              LLMs Locais • Modelos Governamentais • Israel, China, Rússia, Japão, UAE, Suíça
             </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              <span className="px-2 py-1 text-[10px] bg-red-500/10 text-red-400 border border-red-500/20 rounded-full">🔴 Red Team</span>
+              <span className="px-2 py-1 text-[10px] bg-purple-500/10 text-purple-400 border border-purple-500/20 rounded-full">🤖 Multi-Agentes</span>
+              <span className="px-2 py-1 text-[10px] bg-green-500/10 text-green-400 border border-green-500/20 rounded-full">💻 Code Models</span>
+              <span className="px-2 py-1 text-[10px] bg-pink-500/10 text-pink-400 border border-pink-500/20 rounded-full">🎬 Mídia AI</span>
+              <span className="px-2 py-1 text-[10px] bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-full">🏛️ Gov/Militar</span>
+              <span className="px-2 py-1 text-[10px] bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 rounded-full">🦙 LLM Local</span>
+            </div>
           </div>
 
           {/* Featured Repos */}
-          {category === 'all' && !searchQuery && <FeaturedRepos />}
+          <FeaturedRepos activeCategory={category} />
 
           {/* Filters */}
-          <div className="mb-6">
+          <div className="mt-8 mb-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-900 border border-gray-700 rounded-xl">
+                <Rocket className="w-4 h-4 text-cyan-400" />
+                <h2 className="text-sm font-bold text-white uppercase tracking-wider">Mineração GitHub API</h2>
+              </div>
+              <div className="h-px flex-1 bg-gradient-to-r from-gray-700 to-transparent" />
+            </div>
             <Filters
               timeRange={timeRange}
               sortBy={sortBy}
@@ -148,7 +163,7 @@ export default function App() {
                   <span className="text-[10px]">🔥</span>
                 </div>
                 <span className="text-sm text-gray-500">
-                  RepoMiner — Minerador de Repositórios GitHub
+                  RepoMiner — Minerador Massivo de Repositórios GitHub
                 </span>
               </div>
               <div className="flex items-center gap-4">

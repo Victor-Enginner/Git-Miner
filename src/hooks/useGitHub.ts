@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import { GitHubRepo, TimeRange, SortBy } from '../types';
-import { giantCompanyRepos } from '../data/featured';
 
 const GITHUB_API = 'https://api.github.com';
 
@@ -31,21 +30,20 @@ export function useTrendingRepos(timeRange: TimeRange, sortBy: SortBy, language:
       let query = '';
       const dateRange = getDateRange(timeRange);
       
-      if (category === 'featured') {
-        // Fetch featured repos specifically
-        const orgs = giantCompanyRepos.slice(0, 10).join(' ');
-        query = `stars:>5000 pushed:>${dateRange} sort:stars-desc`;
-        const response = await fetch(
-          `${GITHUB_API}/search/repositories?q=${encodeURIComponent(query)}&sort=stars&order=desc&per_page=30`
-        );
-        if (!response.ok) throw new Error('API rate limit or error');
-        const data = await response.json();
-        setRepos(data.items || []);
-        setLoading(false);
-        return;
-      }
-
-      if (category === 'ai') {
+      if (category === 'featured' || category === 'agents' || category === 'hacking' || 
+          category === 'code' || category === 'media' || category === 'gov' || category === 'local-llm') {
+        // For featured categories, we still fetch trending repos but with relevant keywords
+        const categoryKeywords: Record<string, string> = {
+          'agents': 'topic:ai-agents OR topic:multi-agent OR topic:autonomous stars:>3000',
+          'hacking': 'topic:security OR topic:penetration-testing OR topic:red-team stars:>2000',
+          'code': 'topic:code-assistant OR topic:copilot OR topic:ai-coding stars:>2000',
+          'media': 'topic:image-generation OR topic:video-generation OR topic:stable-diffusion stars:>3000',
+          'gov': 'topic:government OR topic:military OR topic:sovereign-ai stars:>1000',
+          'local-llm': 'topic:local-llm OR topic:llm-inference OR topic:on-device stars:>3000',
+          'featured': 'stars:>5000',
+        };
+        query = `${categoryKeywords[category] || 'stars:>5000'} pushed:>${dateRange}`;
+      } else if (category === 'ai') {
         query = `topic:artificial-intelligence OR topic:machine-learning OR topic:llm OR topic:ai pushed:>${dateRange} stars:>1000`;
       } else if (category === 'devtools') {
         query = `topic:developer-tools OR topic:cli OR topic:devops pushed:>${dateRange} stars:>1000`;
@@ -86,28 +84,4 @@ export function useTrendingRepos(timeRange: TimeRange, sortBy: SortBy, language:
   }, [fetchRepos]);
 
   return { repos, loading, error, refetch: fetchRepos };
-}
-
-export function useRepoDetails(owner: string, repo: string) {
-  const [repoData, setRepoData] = useState<GitHubRepo | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchDetails = async () => {
-      try {
-        const response = await fetch(`${GITHUB_API}/repos/${owner}/${repo}`);
-        if (response.ok) {
-          const data = await response.json();
-          setRepoData(data);
-        }
-      } catch {
-        // Silent fail
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchDetails();
-  }, [owner, repo]);
-
-  return { repoData, loading };
 }
