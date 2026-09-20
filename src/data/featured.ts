@@ -73,6 +73,71 @@ export const originalFeatured: FeaturedRepo[] = [
 // ============ MULTI-AGENTES & COGNIÇÃO ============
 export const multiAgentRepos: FeaturedRepo[] = [
   {
+    full_name: 'browser-use/browser-use',
+    name: 'browser-use',
+    owner: { login: 'browser-use', avatar_url: 'https://avatars.githubusercontent.com/u/192012301', type: 'Organization' },
+    description: 'Agents that use the browser.',
+    html_url: 'https://github.com/browser-use/browser-use',
+    stargazers_count: 115539,
+    forks_count: 12713,
+    language: 'Python',
+    topics: ['ai-agents', 'ai-tools', 'browser-automation', 'browser-use', 'llm'],
+    category: 'agents',
+    badge: '🌐 Browser Agents'
+  },
+  {
+    full_name: 'Companion-Inc/feynman',
+    name: 'feynman',
+    owner: { login: 'Companion-Inc', avatar_url: 'https://avatars.githubusercontent.com/u/231637121', type: 'Organization' },
+    description: 'The open source AI research agent.',
+    html_url: 'https://github.com/Companion-Inc/feynman',
+    stargazers_count: 9719,
+    forks_count: 1084,
+    language: 'TypeScript',
+    topics: [],
+    category: 'agents',
+    badge: '🔬 Research Agent'
+  },
+  {
+    full_name: 'google/artemis',
+    name: 'artemis',
+    owner: { login: 'google', avatar_url: 'https://avatars.githubusercontent.com/u/1342004', type: 'Organization' },
+    description: 'Turns natural-language instructions into reliable Android automation. 99%+ success rate on the AndroidWorld benchmark.',
+    html_url: 'https://github.com/google/artemis',
+    stargazers_count: 8329,
+    forks_count: 789,
+    language: 'Python',
+    topics: ['ai-agents', 'android', 'google', 'test-automation', 'testing'],
+    category: 'agents',
+    badge: '📱 Android Automation'
+  },
+  {
+    full_name: 'halofyai/halofy',
+    name: 'halofy',
+    owner: { login: 'halofyai', avatar_url: 'https://avatars.githubusercontent.com/u/264338742', type: 'Organization' },
+    description: 'Open access and governance layer for AI agents: identity, policy, provenance, audit, and signed erasure.',
+    html_url: 'https://github.com/halofyai/halofy',
+    stargazers_count: 336,
+    forks_count: 24,
+    language: 'TypeScript',
+    topics: ['access-control', 'agent-governance', 'agent-memory', 'agent-visibility', 'ai-agents'],
+    category: 'agents',
+    badge: '🛡️ Agent Governance'
+  },
+  {
+    full_name: 'tiliondev/fortress',
+    name: 'fortress',
+    owner: { login: 'tiliondev', avatar_url: 'https://avatars.githubusercontent.com/u/298404667', type: 'Organization' },
+    description: 'Stealth Chromium engine that stops scrapers and browser agents from getting blocked, with one line of code change.',
+    html_url: 'https://github.com/tiliondev/fortress',
+    stargazers_count: 627,
+    forks_count: 41,
+    language: 'Python',
+    topics: ['anti-bot', 'automation', 'bot-detection', 'browser-automation', 'chromium'],
+    category: 'agents',
+    badge: '🕶️ Stealth Browser'
+  },
+  {
     full_name: 'microsoft/autogen',
     name: 'autogen',
     owner: { login: 'microsoft', avatar_url: 'https://avatars.githubusercontent.com/u/6154722', type: 'Organization' },
@@ -169,6 +234,32 @@ export const multiAgentRepos: FeaturedRepo[] = [
 
 // ============ CYBERSECURITY / HACKING / RED TEAM ============
 export const hackingRepos: FeaturedRepo[] = [
+  {
+    full_name: 'EvanThomasLuke/Awesome-AI-Hacking-Agents',
+    name: 'Awesome-AI-Hacking-Agents',
+    owner: { login: 'EvanThomasLuke', avatar_url: 'https://avatars.githubusercontent.com/u/24284799', type: 'User' },
+    description: 'List of AI Hacking Agents',
+    html_url: 'https://github.com/EvanThomasLuke/Awesome-AI-Hacking-Agents',
+    stargazers_count: 682,
+    forks_count: 109,
+    language: 'Markdown',
+    topics: [],
+    category: 'hacking',
+    badge: '🔴 AI Hacking Agents'
+  },
+  {
+    full_name: 'Lakr233/vphone-cli',
+    name: 'vphone-cli',
+    owner: { login: 'Lakr233', avatar_url: 'https://avatars.githubusercontent.com/u/25259084', type: 'User' },
+    description: 'Boot a virtual iPhone via Apple\'s Virtualization.framework using PCC research VM infrastructure.',
+    html_url: 'https://github.com/Lakr233/vphone-cli',
+    stargazers_count: 14075,
+    forks_count: 1662,
+    language: 'Swift',
+    topics: [],
+    category: 'hacking',
+    badge: '📱 iOS VM Research'
+  },
   {
     full_name: 'shadow1ng/fscan',
     name: 'fscan',
@@ -309,6 +400,45 @@ export const hackingRepos: FeaturedRepo[] = [
 // ============ MODELOS DE CÓDIGO ============
 export const codeModelRepos: FeaturedRepo[] = [
   {
+    full_name: 'OpenHands/OpenHands',
+    name: 'OpenHands',
+    owner: { login: 'OpenHands', avatar_url: 'https://avatars.githubusercontent.com/u/225919603', type: 'Organization' },
+    description: '🙌 OpenHands: AI-Driven Development',
+    html_url: 'https://github.com/OpenHands/OpenHands',
+    stargazers_count: 88641,
+    forks_count: 11661,
+    language: 'TypeScript',
+    topics: ['agent', 'artificial-intelligence', 'chatgpt', 'claude-ai', 'cli'],
+    category: 'code',
+    badge: '🙌 Dev Agent'
+  },
+  {
+    full_name: 'justrach/codegraff',
+    name: 'codegraff',
+    owner: { login: 'justrach', avatar_url: 'https://avatars.githubusercontent.com/u/54503978', type: 'User' },
+    description: 'AI agent for coding and computer work in your terminal or desktop. Written in Zig: one 3.7 MB binary, multi-provider, MCP, SDKs.',
+    html_url: 'https://github.com/justrach/codegraff',
+    stargazers_count: 264,
+    forks_count: 23,
+    language: 'Zig',
+    topics: [],
+    category: 'code',
+    badge: '⚡ Agent em Zig'
+  },
+  {
+    full_name: 'bradAGI/awesome-cli-coding-agents',
+    name: 'awesome-cli-coding-agents',
+    owner: { login: 'bradAGI', avatar_url: 'https://avatars.githubusercontent.com/u/46579244', type: 'User' },
+    description: 'Curated directory of terminal-native AI coding agents and the harnesses that orchestrate them: Aider, Goose, OpenCode, Claude Code, Codex and more.',
+    html_url: 'https://github.com/bradAGI/awesome-cli-coding-agents',
+    stargazers_count: 1248,
+    forks_count: 355,
+    language: 'Python',
+    topics: [],
+    category: 'code',
+    badge: '🧰 CLI Agents'
+  },
+  {
     full_name: 'continue-dev/continue',
     name: 'continue',
     owner: { login: 'continuedev', avatar_url: 'https://avatars.githubusercontent.com/u/127807689', type: 'Organization' },
@@ -390,6 +520,45 @@ export const codeModelRepos: FeaturedRepo[] = [
 
 // ============ GERAÇÃO DE MÍDIA (VÍDEO, IMAGEM, ÁUDIO, PDF) ============
 export const mediaRepos: FeaturedRepo[] = [
+  {
+    full_name: 'Anil-matcha/AI-Youtube-Shorts-Generator',
+    name: 'AI-Youtube-Shorts-Generator',
+    owner: { login: 'Anil-matcha', avatar_url: 'https://avatars.githubusercontent.com/u/4326215', type: 'User' },
+    description: 'Open-source alternative to Opus Clip & Klap. Turns long YouTube videos into viral 9:16 shorts with LLM highlight detection and Whisper. Free, no watermarks.',
+    html_url: 'https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator',
+    stargazers_count: 5048,
+    forks_count: 927,
+    language: 'Python',
+    topics: ['2short-ai-alternative', 'ai-clip-generator', 'ai-clipping', 'auto-clip', 'auto-crop'],
+    category: 'media',
+    badge: '🎬 Shorts Grátis'
+  },
+  {
+    full_name: 'webadderallorg/Recordly',
+    name: 'Recordly',
+    owner: { login: 'webadderallorg', avatar_url: 'https://avatars.githubusercontent.com/u/278603407', type: 'Organization' },
+    description: 'Create polished demo videos without editing skills. Mac/Windows/Linux',
+    html_url: 'https://github.com/webadderallorg/Recordly',
+    stargazers_count: 30023,
+    forks_count: 2349,
+    language: 'TypeScript',
+    topics: ['electron', 'free', 'linux', 'macos', 'open-source'],
+    category: 'media',
+    badge: '🎥 Demo Videos'
+  },
+  {
+    full_name: 'lllyasviel/Fooocus',
+    name: 'Fooocus',
+    owner: { login: 'lllyasviel', avatar_url: 'https://avatars.githubusercontent.com/u/19834515', type: 'User' },
+    description: 'Focus on prompting and generating: offline, open-source image generator built on Stable Diffusion XL.',
+    html_url: 'https://github.com/lllyasviel/Fooocus',
+    stargazers_count: 53110,
+    forks_count: 8613,
+    language: 'Python',
+    topics: [],
+    category: 'media',
+    badge: '🎨 Imagem AI'
+  },
   {
     full_name: 'comfyanonymous/ComfyUI',
     name: 'ComfyUI',
@@ -678,6 +847,32 @@ export const govMilitaryRepos: FeaturedRepo[] = [
 // ============ LLMs LOCAIS / MODELOS DE CÓDIGO ============
 export const localLLMRepos: FeaturedRepo[] = [
   {
+    full_name: 'Edge0-AI/Edge0',
+    name: 'Edge0',
+    owner: { login: 'Edge0-AI', avatar_url: 'https://avatars.githubusercontent.com/u/310437271', type: 'Organization' },
+    description: 'Open-source streaming MoE inference framework: SSD expert offload + Recover-LoRA + prerouter routing prediction.',
+    html_url: 'https://github.com/Edge0-AI/Edge0',
+    stargazers_count: 2020,
+    forks_count: 175,
+    language: 'Python',
+    topics: [],
+    category: 'local-llm',
+    badge: '⚡ MoE Streaming'
+  },
+  {
+    full_name: 'Nehanth/swarmllm',
+    name: 'swarmllm',
+    owner: { login: 'Nehanth', avatar_url: 'https://avatars.githubusercontent.com/u/17011994', type: 'User' },
+    description: 'Peer-to-peer LLM inference across browser tabs: a WebGPU engine and WebRTC runtime that split a 27B model over the devices in a room.',
+    html_url: 'https://github.com/Nehanth/swarmllm',
+    stargazers_count: 425,
+    forks_count: 60,
+    language: 'JavaScript',
+    topics: ['browser', 'distributed-inference', 'inference', 'llm', 'local-llm'],
+    category: 'local-llm',
+    badge: '🌐 LLM P2P no Browser'
+  },
+  {
     full_name: 'ollama/ollama',
     name: 'ollama',
     owner: { login: 'ollama', avatar_url: 'https://avatars.githubusercontent.com/u/141343628', type: 'Organization' },
@@ -744,6 +939,62 @@ export const localLLMRepos: FeaturedRepo[] = [
   }
 ];
 
+// ============ DEV TOOLS / SELF-HOSTED / PRODUTIVIDADE ============
+export const devToolsRepos: FeaturedRepo[] = [
+  {
+    full_name: 'gotify/server',
+    name: 'server',
+    owner: { login: 'gotify', avatar_url: 'https://avatars.githubusercontent.com/u/36410427', type: 'Organization' },
+    description: 'A simple server for sending and receiving messages in real-time per WebSocket. (Includes a sleek web-ui)',
+    html_url: 'https://github.com/gotify/server',
+    stargazers_count: 15936,
+    forks_count: 877,
+    language: 'Go',
+    topics: ['api', 'cloud', 'free-software', 'golang', 'gotify'],
+    category: 'devtools',
+    badge: '🔔 Self-Hosted'
+  },
+  {
+    full_name: 'public-apis/public-apis',
+    name: 'public-apis',
+    owner: { login: 'public-apis', avatar_url: 'https://avatars.githubusercontent.com/u/51121562', type: 'Organization' },
+    description: 'A collective list of free APIs',
+    html_url: 'https://github.com/public-apis/public-apis',
+    stargazers_count: 481884,
+    forks_count: 53214,
+    language: 'Python',
+    topics: ['api', 'apis', 'dataset', 'development', 'free'],
+    category: 'devtools',
+    badge: '📚 APIs Grátis'
+  },
+  {
+    full_name: 'Tianyu199509/DeskBox',
+    name: 'DeskBox',
+    owner: { login: 'Tianyu199509', avatar_url: 'https://avatars.githubusercontent.com/u/122434621', type: 'User' },
+    description: 'A free, open-source Windows desktop organizer with native-feeling WinUI 3 widgets.',
+    html_url: 'https://github.com/Tianyu199509/DeskBox',
+    stargazers_count: 4890,
+    forks_count: 265,
+    language: 'C#',
+    topics: ['desktop-cleanup', 'desktop-organizer', 'desktop-widget', 'desktop-widgets', 'dotnet10'],
+    category: 'devtools',
+    badge: '🗂️ Desktop Organizer'
+  },
+  {
+    full_name: 'ever-co/ever-gauzy',
+    name: 'ever-gauzy',
+    owner: { login: 'ever-co', avatar_url: 'https://avatars.githubusercontent.com/u/41295674', type: 'Organization' },
+    description: 'Ever® Gauzy™ - Open Business Management Platform (ERP/CRM/HRM/ATS/PM) - https://gauzy.co',
+    html_url: 'https://github.com/ever-co/ever-gauzy',
+    stargazers_count: 7807,
+    forks_count: 1159,
+    language: 'TypeScript',
+    topics: ['accounting', 'billing', 'bookkeeping', 'crm', 'crm-platform'],
+    category: 'devtools',
+    badge: '🏢 ERP / CRM'
+  }
+];
+
 // ============ TODOS OS REPOS EM DESTAQUE ============
 export const allFeaturedRepos: FeaturedRepo[] = [
   ...originalFeatured,
@@ -752,7 +1003,8 @@ export const allFeaturedRepos: FeaturedRepo[] = [
   ...codeModelRepos,
   ...mediaRepos,
   ...govMilitaryRepos,
-  ...localLLMRepos
+  ...localLLMRepos,
+  ...devToolsRepos
 ];
 
 // ============ BUSCAS TRENDING ============
