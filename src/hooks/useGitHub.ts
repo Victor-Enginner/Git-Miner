@@ -31,7 +31,7 @@ export function useTrendingRepos(timeRange: TimeRange, sortBy: SortBy, language:
       const dateRange = getDateRange(timeRange);
       
       if (category === 'featured' || category === 'agents' || category === 'hacking' || 
-          category === 'code' || category === 'media' || category === 'gov' || category === 'local-llm') {
+          category === 'code' || category === 'media' || category === 'gov' || category === 'local-llm' || category === 'manual') {
         // For featured categories, we still fetch trending repos but with relevant keywords
         const categoryKeywords: Record<string, string> = {
           'agents': 'topic:ai-agents OR topic:multi-agent OR topic:autonomous stars:>3000',
@@ -40,6 +40,7 @@ export function useTrendingRepos(timeRange: TimeRange, sortBy: SortBy, language:
           'media': 'topic:image-generation OR topic:video-generation OR topic:stable-diffusion stars:>3000',
           'gov': 'topic:government OR topic:military OR topic:sovereign-ai stars:>1000',
           'local-llm': 'topic:local-llm OR topic:llm-inference OR topic:on-device stars:>3000',
+          'manual': 'stars:>1000',
           'featured': 'stars:>5000',
         };
         query = `${categoryKeywords[category] || 'stars:>5000'} pushed:>${dateRange}`;

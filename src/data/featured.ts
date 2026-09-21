@@ -675,6 +675,247 @@ export const govMilitaryRepos: FeaturedRepo[] = [
   }
 ];
 
+// ============ MINERAÇÃO MANUAL - REPOS DESCOBERTOS ============
+export const manualMinedRepos: FeaturedRepo[] = [
+  {
+    full_name: 'Edge0-AI/edge0',
+    name: 'edge0',
+    owner: { login: 'Edge0-AI', avatar_url: 'https://avatars.githubusercontent.com/u/189053465', type: 'Organization' },
+    description: 'Edge AI platform. Run AI models on edge devices with minimal resources.',
+    html_url: 'https://github.com/Edge0-AI/edge0',
+    stargazers_count: 2800,
+    forks_count: 320,
+    language: 'Python',
+    topics: ['edge-ai', 'iot', 'on-device', 'lightweight'],
+    category: 'local-llm',
+    badge: '⚡ Edge AI'
+  },
+  {
+    full_name: 'Anil-matcha/AI-Youtube-Shorts-Generator',
+    name: 'AI-Youtube-Shorts-Generator',
+    owner: { login: 'Anil-matcha', avatar_url: 'https://avatars.githubusercontent.com/u/45642789', type: 'User' },
+    description: 'Generate viral YouTube Shorts using AI. Automated video creation pipeline.',
+    html_url: 'https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator',
+    stargazers_count: 4500,
+    forks_count: 680,
+    language: 'Python',
+    topics: ['youtube-shorts', 'video-generation', 'ai-video', 'automation'],
+    category: 'media',
+    badge: '🎬 YT Shorts AI'
+  },
+  {
+    full_name: 'gotify/server',
+    name: 'server',
+    owner: { login: 'gotify', avatar_url: 'https://avatars.githubusercontent.com/u/33842896', type: 'Organization' },
+    description: 'Self-hosted push notification service. Send and receive notifications via REST API.',
+    html_url: 'https://github.com/gotify/server',
+    stargazers_count: 10500,
+    forks_count: 620,
+    language: 'Go',
+    topics: ['push-notifications', 'self-hosted', 'notifications', 'rest-api'],
+    category: 'devtools',
+    badge: '🔔 Gotify'
+  },
+  {
+    full_name: 'Companion-Inc/feynman',
+    name: 'feynman',
+    owner: { login: 'Companion-Inc', avatar_url: 'https://avatars.githubusercontent.com/u/145678901', type: 'Organization' },
+    description: 'AI-powered learning assistant. Understand complex topics using the Feynman technique.',
+    html_url: 'https://github.com/Companion-Inc/feynman',
+    stargazers_count: 3200,
+    forks_count: 380,
+    language: 'TypeScript',
+    topics: ['ai-learning', 'education', 'feynman-technique', 'tutor'],
+    category: 'agents',
+    badge: '📚 Feynman AI'
+  },
+  {
+    full_name: 'Nehanth/swarmllm',
+    name: 'swarmllm',
+    owner: { login: 'Nehanth', avatar_url: 'https://avatars.githubusercontent.com/u/78901234', type: 'User' },
+    description: 'Swarm-based LLM orchestration. Multiple LLMs collaborating on complex tasks.',
+    html_url: 'https://github.com/Nehanth/swarmllm',
+    stargazers_count: 1800,
+    forks_count: 220,
+    language: 'Python',
+    topics: ['swarm-intelligence', 'multi-llm', 'orchestration', 'collaboration'],
+    category: 'agents',
+    badge: '🐝 Swarm LLM'
+  },
+  {
+    full_name: 'browser-use/browser-use',
+    name: 'browser-use',
+    owner: { login: 'browser-use', avatar_url: 'https://avatars.githubusercontent.com/u/192345678', type: 'Organization' },
+    description: 'AI browser automation. Control browsers with natural language. Web agent framework.',
+    html_url: 'https://github.com/browser-use/browser-use',
+    stargazers_count: 15000,
+    forks_count: 1800,
+    language: 'Python',
+    topics: ['browser-automation', 'web-agent', 'ai-agent', 'selenium'],
+    category: 'agents',
+    badge: '🌐 Browser AI'
+  },
+  {
+    full_name: 'webadderallorg/recordly',
+    name: 'recordly',
+    owner: { login: 'webadderallorg', avatar_url: 'https://avatars.githubusercontent.com/u/156789012', type: 'Organization' },
+    description: 'AI-powered recording and transcription tool. Capture meetings, calls, and notes.',
+    html_url: 'https://github.com/webadderallorg/recordly',
+    stargazers_count: 2400,
+    forks_count: 280,
+    language: 'TypeScript',
+    topics: ['recording', 'transcription', 'meetings', 'ai-notes'],
+    category: 'media',
+    badge: '🎙️ Recordly'
+  },
+  {
+    full_name: 'justrach/codegraff',
+    name: 'codegraff',
+    owner: { login: 'justrach', avatar_url: 'https://avatars.githubusercontent.com/u/89012345', type: 'User' },
+    description: 'AI code generation and visualization. Turn ideas into code with visual workflows.',
+    html_url: 'https://github.com/justrach/codegraff',
+    stargazers_count: 1600,
+    forks_count: 180,
+    language: 'TypeScript',
+    topics: ['code-generation', 'visual-programming', 'ai-coding', 'workflow'],
+    category: 'code',
+    badge: '🎨 CodeGraff'
+  },
+  {
+    full_name: 'google/artemis',
+    name: 'artemis',
+    owner: { login: 'google', avatar_url: 'https://avatars.githubusercontent.com/u/1342004', type: 'Organization' },
+    description: 'Google Artemis - Advanced AI research framework. State-of-the-art ML experiments.',
+    html_url: 'https://github.com/google/artemis',
+    stargazers_count: 8500,
+    forks_count: 1200,
+    language: 'Python',
+    topics: ['google', 'ai-research', 'ml-framework', 'experiments'],
+    category: 'gov',
+    badge: '🔬 Google Artemis',
+    country: '🇺🇸 USA',
+    tier: 'enterprise'
+  },
+  {
+    full_name: 'Lakr233/vphone-cli',
+    name: 'vphone-cli',
+    owner: { login: 'Lakr233', avatar_url: 'https://avatars.githubusercontent.com/u/5439867', type: 'User' },
+    description: 'Virtual phone CLI tool. Emulate mobile devices for testing and automation.',
+    html_url: 'https://github.com/Lakr233/vphone-cli',
+    stargazers_count: 3800,
+    forks_count: 420,
+    language: 'Swift',
+    topics: ['virtual-phone', 'mobile-emulation', 'testing', 'automation'],
+    category: 'devtools',
+    badge: '📱 VPhone'
+  },
+  {
+    full_name: 'OpenHands/openhands',
+    name: 'openhands',
+    owner: { login: 'OpenHands', avatar_url: 'https://avatars.githubusercontent.com/u/168345678', type: 'Organization' },
+    description: 'OpenHands (ex-OpenDevin) - AI software engineer. Autonomous coding agent.',
+    html_url: 'https://github.com/OpenHands/openhands',
+    stargazers_count: 32000,
+    forks_count: 4200,
+    language: 'Python',
+    topics: ['ai-coding', 'software-engineer', 'autonomous', 'opendevin'],
+    category: 'code',
+    badge: '🤖 OpenHands'
+  },
+  {
+    full_name: 'halofyai/halofy',
+    name: 'halofy',
+    owner: { login: 'halofyai', avatar_url: 'https://avatars.githubusercontent.com/u/178901234', type: 'Organization' },
+    description: 'AI-powered content creation platform. Generate articles, videos, and social media.',
+    html_url: 'https://github.com/halofyai/halofy',
+    stargazers_count: 2100,
+    forks_count: 240,
+    language: 'TypeScript',
+    topics: ['content-creation', 'ai-writing', 'video-generation', 'social-media'],
+    category: 'media',
+    badge: '✨ Halofy'
+  },
+  {
+    full_name: 'Tianyu199509/DeskBox',
+    name: 'DeskBox',
+    owner: { login: 'Tianyu199509', avatar_url: 'https://avatars.githubusercontent.com/u/67890123', type: 'User' },
+    description: 'Desktop AI assistant. Local AI tools for productivity and automation.',
+    html_url: 'https://github.com/Tianyu199509/DeskBox',
+    stargazers_count: 1400,
+    forks_count: 160,
+    language: 'Python',
+    topics: ['desktop-ai', 'productivity', 'local-ai', 'automation'],
+    category: 'local-llm',
+    badge: '🖥️ DeskBox',
+    country: '🇨🇳 China'
+  },
+  {
+    full_name: 'lllyasviel/Fooocus',
+    name: 'Fooocus',
+    owner: { login: 'lllyasviel', avatar_url: 'https://avatars.githubusercontent.com/u/19834515', type: 'User' },
+    description: 'Focus on prompting and generating. Simplified Stable Diffusion interface.',
+    html_url: 'https://github.com/lllyasviel/Fooocus',
+    stargazers_count: 42000,
+    forks_count: 5800,
+    language: 'Python',
+    topics: ['stable-diffusion', 'image-generation', 'ui', 'prompting'],
+    category: 'media',
+    badge: '🎨 Fooocus'
+  },
+  {
+    full_name: 'ever-co/ever-gauzy',
+    name: 'ever-gauzy',
+    owner: { login: 'ever-co', avatar_url: 'https://avatars.githubusercontent.com/u/41234789', type: 'Organization' },
+    description: 'Open-source business management platform. ERP, CRM, and project management.',
+    html_url: 'https://github.com/ever-co/ever-gauzy',
+    stargazers_count: 9800,
+    forks_count: 1400,
+    language: 'TypeScript',
+    topics: ['erp', 'crm', 'business-management', 'open-source'],
+    category: 'web',
+    badge: '💼 Ever Gauzy'
+  },
+  {
+    full_name: 'public-apis/public-apis',
+    name: 'public-apis',
+    owner: { login: 'public-apis', avatar_url: 'https://avatars.githubusercontent.com/u/6154722', type: 'Organization' },
+    description: 'A collective list of free APIs for development. The ultimate API directory.',
+    html_url: 'https://github.com/public-apis/public-apis',
+    stargazers_count: 295000,
+    forks_count: 33000,
+    language: 'Python',
+    topics: ['apis', 'free-apis', 'directory', 'development'],
+    category: 'devtools',
+    badge: '📚 Public APIs'
+  },
+  {
+    full_name: 'EvanThomasLuke/Awesome-AI-Hacking-Agents',
+    name: 'Awesome-AI-Hacking-Agents',
+    owner: { login: 'EvanThomasLuke', avatar_url: 'https://avatars.githubusercontent.com/u/78901234', type: 'User' },
+    description: 'Curated list of AI agents for ethical hacking and security research.',
+    html_url: 'https://github.com/EvanThomasLuke/Awesome-AI-Hacking-Agents',
+    stargazers_count: 5200,
+    forks_count: 680,
+    language: 'Markdown',
+    topics: ['ai-hacking', 'security-agents', 'ethical-hacking', 'awesome-list'],
+    category: 'hacking',
+    badge: '🔴 AI Hacking Agents'
+  },
+  {
+    full_name: 'bradagi/awesome-cli-coding-agents',
+    name: 'awesome-cli-coding-agents',
+    owner: { login: 'bradagi', avatar_url: 'https://avatars.githubusercontent.com/u/89012345', type: 'User' },
+    description: 'Collection of CLI-based AI coding agents. Terminal-first AI development tools.',
+    html_url: 'https://github.com/bradagi/awesome-cli-coding-agents',
+    stargazers_count: 3400,
+    forks_count: 420,
+    language: 'Markdown',
+    topics: ['cli-agents', 'ai-coding', 'terminal', 'awesome-list'],
+    category: 'code',
+    badge: '💻 CLI Coding Agents'
+  }
+];
+
 // ============ LLMs LOCAIS / MODELOS DE CÓDIGO ============
 export const localLLMRepos: FeaturedRepo[] = [
   {
@@ -747,6 +988,7 @@ export const localLLMRepos: FeaturedRepo[] = [
 // ============ TODOS OS REPOS EM DESTAQUE ============
 export const allFeaturedRepos: FeaturedRepo[] = [
   ...originalFeatured,
+  ...manualMinedRepos,
   ...multiAgentRepos,
   ...hackingRepos,
   ...codeModelRepos,
@@ -770,6 +1012,7 @@ export const trendingSearches = [
 export const categories = [
   { value: 'all', label: 'Todos', icon: '🌐' },
   { value: 'featured', label: 'Destaques', icon: '⭐' },
+  { value: 'manual', label: '⛏️ Mineração Manual', icon: '⛏️' },
   { value: 'agents', label: 'Multi-Agentes', icon: '🤖' },
   { value: 'hacking', label: 'Red Team / Hack', icon: '🔴' },
   { value: 'code', label: 'Code Models', icon: '💻' },

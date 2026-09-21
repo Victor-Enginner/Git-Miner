@@ -1,6 +1,6 @@
-import { originalFeatured, multiAgentRepos, hackingRepos, codeModelRepos, mediaRepos, govMilitaryRepos, localLLMRepos } from '../data/featured';
+import { originalFeatured, multiAgentRepos, hackingRepos, codeModelRepos, mediaRepos, govMilitaryRepos, localLLMRepos, manualMinedRepos } from '../data/featured';
 import type { FeaturedRepo } from '../data/featured';
-import { Star, GitFork, ExternalLink, Zap, Shield, Brain, Code2, Film, Globe, Cpu } from 'lucide-react';
+import { Star, GitFork, ExternalLink, Zap, Shield, Brain, Code2, Film, Globe, Cpu, Hammer } from 'lucide-react';
 
 function formatNumber(num: number): string {
   if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
@@ -14,6 +14,7 @@ interface FeaturedSectionProps {
 
 const sectionConfig: Record<string, { title: string; icon: React.ReactNode; repos: FeaturedRepo[]; gradient: string }> = {
   'all': { title: 'Repos em Destaque', icon: <Zap className="w-4 h-4 text-orange-400" />, repos: originalFeatured, gradient: 'from-orange-500/20 to-red-500/20' },
+  'manual': { title: '⛏️ Mineração Manual - Garimpados a Mão', icon: <Hammer className="w-4 h-4 text-amber-400" />, repos: manualMinedRepos, gradient: 'from-amber-500/20 to-yellow-500/20' },
   'agents': { title: 'Multi-Agentes & Cognição', icon: <Brain className="w-4 h-4 text-purple-400" />, repos: multiAgentRepos, gradient: 'from-purple-500/20 to-blue-500/20' },
   'hacking': { title: 'Red Team / Ethical Hacking', icon: <Shield className="w-4 h-4 text-red-400" />, repos: hackingRepos, gradient: 'from-red-500/20 to-orange-500/20' },
   'code': { title: 'Modelos de Código', icon: <Code2 className="w-4 h-4 text-green-400" />, repos: codeModelRepos, gradient: 'from-green-500/20 to-emerald-500/20' },
