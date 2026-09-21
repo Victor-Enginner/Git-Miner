@@ -1,6 +1,7 @@
-import { originalFeatured, multiAgentRepos, hackingRepos, codeModelRepos, mediaRepos, govMilitaryRepos, localLLMRepos, manualMinedRepos } from '../data/featured';
+import { originalFeatured, multiAgentRepos, hackingRepos, codeModelRepos, mediaRepos, govMilitaryRepos, localLLMRepos, devToolsRepos, manualMinedRepos } from '../data/featured';
 import type { FeaturedRepo } from '../data/featured';
-import { Star, GitFork, ExternalLink, Zap, Shield, Brain, Code2, Film, Globe, Cpu, Hammer } from 'lucide-react';
+import { Star, GitFork, ExternalLink, Zap, Shield, Brain, Code2, Film, Globe, Cpu, Wrench, Hammer } from 'lucide-react';
+import { SpotlightGlow, onSpotlightMove } from './SpotlightGlow';
 
 function formatNumber(num: number): string {
   if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
@@ -21,6 +22,7 @@ const sectionConfig: Record<string, { title: string; icon: React.ReactNode; repo
   'media': { title: 'Mídia: Vídeo, Imagem, Áudio, PDF', icon: <Film className="w-4 h-4 text-pink-400" />, repos: mediaRepos, gradient: 'from-pink-500/20 to-purple-500/20' },
   'gov': { title: 'Gov / Militar / Geopolítico', icon: <Globe className="w-4 h-4 text-blue-400" />, repos: govMilitaryRepos, gradient: 'from-blue-500/20 to-cyan-500/20' },
   'local-llm': { title: 'LLMs Locais - Seu PC Monstro', icon: <Cpu className="w-4 h-4 text-yellow-400" />, repos: localLLMRepos, gradient: 'from-yellow-500/20 to-orange-500/20' },
+  'devtools': { title: 'Dev Tools & Self-Hosted', icon: <Wrench className="w-4 h-4 text-cyan-400" />, repos: devToolsRepos, gradient: 'from-cyan-500/20 to-blue-500/20' },
 };
 
 function RepoCard({ repo, index, sectionGradient }: { repo: FeaturedRepo; index: number; sectionGradient: string }) {
@@ -31,9 +33,11 @@ function RepoCard({ repo, index, sectionGradient }: { repo: FeaturedRepo; index:
       target="_blank"
       rel="noopener noreferrer"
       className="group relative overflow-hidden rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800/50 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gray-600 hover:shadow-2xl"
+      onMouseMove={onSpotlightMove}
     >
       {/* Background glow on hover */}
       <div className={`absolute inset-0 bg-gradient-to-br ${sectionGradient} opacity-0 group-hover:opacity-100 transition-opacity`} />
+      <SpotlightGlow />
       
       <div className="relative">
         {/* Badge */}
@@ -119,10 +123,16 @@ export default function FeaturedRepos({ activeCategory }: FeaturedSectionProps) 
   const config = sectionConfig[activeCategory] || sectionConfig['all'];
   
   if (activeCategory === 'featured') {
-    // Show all categories
+    // Mostra todas as categorias; um repo que já apareceu numa seção não se repete nas seguintes.
+    const seen = new Set<string>();
+    const sections = Object.entries(sectionConfig).map(([key, section]) => {
+      const repos = section.repos.filter((r) => !seen.has(r.full_name.toLowerCase())).slice(0, 6);
+      repos.forEach((r) => seen.add(r.full_name.toLowerCase()));
+      return { key, section, repos };
+    });
     return (
       <div className="space-y-8">
-        {Object.entries(sectionConfig).map(([key, section]) => (
+        {sections.map(({ key, section, repos }) => (
           <div key={key}>
             <div className="flex items-center gap-3 mb-4">
               <div className={`flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r ${section.gradient} border border-gray-700 rounded-xl`}>
@@ -132,7 +142,7 @@ export default function FeaturedRepos({ activeCategory }: FeaturedSectionProps) 
               <div className="h-px flex-1 bg-gradient-to-r from-gray-700 to-transparent" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {section.repos.slice(0, 6).map((repo, index) => (
+              {repos.map((repo, index) => (
                 <RepoCard key={repo.full_name} repo={repo} index={index} sectionGradient={section.gradient} />
               ))}
             </div>

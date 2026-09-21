@@ -1,6 +1,22 @@
 import { TimeRange, SortBy } from '../types';
 import { Clock, TrendingUp, Filter } from 'lucide-react';
-import { categories, languages } from '../data/featured';
+import {
+  categories, languages, allFeaturedRepos, multiAgentRepos, hackingRepos, codeModelRepos,
+  mediaRepos, govMilitaryRepos, localLLMRepos, devToolsRepos, manualMinedRepos,
+} from '../data/featured';
+
+// Quantos repos curados existem por categoria (as demais categorias vêm só da API do GitHub).
+const curatedCount: Record<string, number> = {
+  featured: allFeaturedRepos.length,
+  agents: multiAgentRepos.length,
+  hacking: hackingRepos.length,
+  code: codeModelRepos.length,
+  media: mediaRepos.length,
+  gov: govMilitaryRepos.length,
+  'local-llm': localLLMRepos.length,
+  devtools: devToolsRepos.length,
+  manual: manualMinedRepos.length,
+};
 
 interface FiltersProps {
   timeRange: TimeRange;
@@ -33,6 +49,11 @@ export default function Filters({
           >
             <span className="mr-1">{cat.icon}</span>
             {cat.label}
+            {curatedCount[cat.value] !== undefined && (
+              <span className="ml-1.5 rounded-md bg-white/10 px-1.5 py-0.5 text-[10px] tabular-nums text-gray-400">
+                {curatedCount[cat.value]}
+              </span>
+            )}
           </button>
         ))}
       </div>

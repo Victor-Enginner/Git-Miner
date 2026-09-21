@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Search, Github, Flame, RefreshCw, Menu, X } from 'lucide-react';
 import { trendingSearches } from '../data/featured';
 
@@ -12,6 +12,18 @@ interface HeaderProps {
 export default function Header({ searchQuery, onSearchChange, onRefresh, loading }: HeaderProps) {
   const [showSearches, setShowSearches] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        inputRef.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-800 bg-gray-950/95 backdrop-blur-xl">
@@ -26,9 +38,9 @@ export default function Header({ searchQuery, onSearchChange, onRefresh, loading
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-gray-950 animate-pulse" />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-lg font-bold text-white tracking-tight">
+              <p className="text-lg font-bold text-white tracking-tight">
                 Repo<span className="text-orange-400">Miner</span>
-              </h1>
+              </p>
               <p className="text-[10px] text-gray-500 -mt-0.5 uppercase tracking-widest">GitHub Trending</p>
             </div>
           </div>
@@ -38,14 +50,18 @@ export default function Header({ searchQuery, onSearchChange, onRefresh, loading
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
               <input
+                ref={inputRef}
                 type="text"
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
                 onFocus={() => setShowSearches(true)}
                 onBlur={() => setTimeout(() => setShowSearches(false), 200)}
                 placeholder="Buscar repositórios, linguagens, empresas..."
-                className="w-full pl-10 pr-4 py-2.5 bg-gray-900 border border-gray-700 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
+                className="w-full pl-10 pr-14 py-2.5 bg-gray-900 border border-gray-700 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
               />
+              <kbd className="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 rounded-md border border-gray-700 bg-gray-800 px-1.5 py-0.5 text-[10px] font-medium text-gray-400 sm:block">
+                Ctrl K
+              </kbd>
             </div>
             
             {/* Trending Searches Dropdown */}

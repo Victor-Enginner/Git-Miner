@@ -1,5 +1,6 @@
 import { GitHubRepo } from '../types';
 import { Star, GitFork, Eye, ExternalLink, Clock } from 'lucide-react';
+import { SpotlightGlow, onSpotlightMove } from './SpotlightGlow';
 
 interface RepoCardProps {
   repo: GitHubRepo;
@@ -64,7 +65,9 @@ export default function RepoCard({ repo, index, isFeatured, badge }: RepoCardPro
           : 'bg-gray-900 border-gray-800 hover:border-gray-600 hover:shadow-purple-500/5'
       }`}
       style={{ animationDelay: `${index * 50}ms` }}
+      onMouseMove={onSpotlightMove}
     >
+      <SpotlightGlow />
       {/* Rank Badge */}
       {!isFeatured && index < 10 && (
         <div className="absolute -top-2 -left-2 w-7 h-7 rounded-lg bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-xs font-bold text-white shadow-lg z-10">
