@@ -12,10 +12,8 @@ export default defineConfig(({ command }) => ({
   },
   server: {
     host: "0.0.0.0",
-    port: 3000,
+    // O preview do Claude atribui a porta via PORT; sem ela, volta para 3000.
+    port: Number(process.env.PORT) || 3000,
     strictPort: true,
-    hmr: {
-      port: 3000,
-    },
   },
 }));
