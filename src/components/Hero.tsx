@@ -26,6 +26,7 @@ function CountUp({ to, format = (n) => n.toString() }: { to: number; format?: (n
 const AURORA_COLORS = ['#030712', '#1e0b3a', '#5b1d6b', '#c2410c', '#fdba74'];
 
 const chips = [
+  { label: '⛏️ Mineração Manual', className: 'bg-amber-500/10 text-amber-300 border-amber-500/30' },
   { label: '🔴 Red Team', className: 'bg-red-500/10 text-red-300 border-red-500/30' },
   { label: '🤖 Multi-Agentes', className: 'bg-purple-500/10 text-purple-300 border-purple-500/30' },
   { label: '💻 Code Models', className: 'bg-green-500/10 text-green-300 border-green-500/30' },
@@ -41,7 +42,7 @@ export default function Hero() {
   const stats = [
     { label: 'repos curados', node: <CountUp to={allFeaturedRepos.length} /> },
     { label: 'estrelas somadas', node: <CountUp to={totalStars} format={formatNumber} /> },
-    { label: 'categorias', node: <CountUp to={7} /> },
+    { label: 'categorias', node: <CountUp to={8} /> },
   ];
 
   return (

@@ -1,6 +1,6 @@
-import { originalFeatured, multiAgentRepos, hackingRepos, codeModelRepos, mediaRepos, govMilitaryRepos, localLLMRepos, devToolsRepos } from '../data/featured';
+import { originalFeatured, multiAgentRepos, hackingRepos, codeModelRepos, mediaRepos, govMilitaryRepos, localLLMRepos, devToolsRepos, manualMinedRepos } from '../data/featured';
 import type { FeaturedRepo } from '../data/featured';
-import { Star, GitFork, ExternalLink, Zap, Shield, Brain, Code2, Film, Globe, Cpu, Wrench } from 'lucide-react';
+import { Star, GitFork, ExternalLink, Zap, Shield, Brain, Code2, Film, Globe, Cpu, Wrench, Hammer } from 'lucide-react';
 import { SpotlightGlow, onSpotlightMove } from './SpotlightGlow';
 
 function formatNumber(num: number): string {
@@ -15,6 +15,7 @@ interface FeaturedSectionProps {
 
 const sectionConfig: Record<string, { title: string; icon: React.ReactNode; repos: FeaturedRepo[]; gradient: string }> = {
   'all': { title: 'Repos em Destaque', icon: <Zap className="w-4 h-4 text-orange-400" />, repos: originalFeatured, gradient: 'from-orange-500/20 to-red-500/20' },
+  'manual': { title: '⛏️ Mineração Manual - Garimpados a Mão', icon: <Hammer className="w-4 h-4 text-amber-400" />, repos: manualMinedRepos, gradient: 'from-amber-500/20 to-yellow-500/20' },
   'agents': { title: 'Multi-Agentes & Cognição', icon: <Brain className="w-4 h-4 text-purple-400" />, repos: multiAgentRepos, gradient: 'from-purple-500/20 to-blue-500/20' },
   'hacking': { title: 'Red Team / Ethical Hacking', icon: <Shield className="w-4 h-4 text-red-400" />, repos: hackingRepos, gradient: 'from-red-500/20 to-orange-500/20' },
   'code': { title: 'Modelos de Código', icon: <Code2 className="w-4 h-4 text-green-400" />, repos: codeModelRepos, gradient: 'from-green-500/20 to-emerald-500/20' },
@@ -122,10 +123,16 @@ export default function FeaturedRepos({ activeCategory }: FeaturedSectionProps) 
   const config = sectionConfig[activeCategory] || sectionConfig['all'];
   
   if (activeCategory === 'featured') {
-    // Show all categories
+    // Mostra todas as categorias; um repo que já apareceu numa seção não se repete nas seguintes.
+    const seen = new Set<string>();
+    const sections = Object.entries(sectionConfig).map(([key, section]) => {
+      const repos = section.repos.filter((r) => !seen.has(r.full_name.toLowerCase())).slice(0, 6);
+      repos.forEach((r) => seen.add(r.full_name.toLowerCase()));
+      return { key, section, repos };
+    });
     return (
       <div className="space-y-8">
-        {Object.entries(sectionConfig).map(([key, section]) => (
+        {sections.map(({ key, section, repos }) => (
           <div key={key}>
             <div className="flex items-center gap-3 mb-4">
               <div className={`flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r ${section.gradient} border border-gray-700 rounded-xl`}>
@@ -135,7 +142,7 @@ export default function FeaturedRepos({ activeCategory }: FeaturedSectionProps) 
               <div className="h-px flex-1 bg-gradient-to-r from-gray-700 to-transparent" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {section.repos.slice(0, 6).map((repo, index) => (
+              {repos.map((repo, index) => (
                 <RepoCard key={repo.full_name} repo={repo} index={index} sectionGradient={section.gradient} />
               ))}
             </div>

@@ -2,7 +2,7 @@ import { TimeRange, SortBy } from '../types';
 import { Clock, TrendingUp, Filter } from 'lucide-react';
 import {
   categories, languages, allFeaturedRepos, multiAgentRepos, hackingRepos, codeModelRepos,
-  mediaRepos, govMilitaryRepos, localLLMRepos, devToolsRepos,
+  mediaRepos, govMilitaryRepos, localLLMRepos, devToolsRepos, manualMinedRepos,
 } from '../data/featured';
 
 // Quantos repos curados existem por categoria (as demais categorias vêm só da API do GitHub).
@@ -15,6 +15,7 @@ const curatedCount: Record<string, number> = {
   gov: govMilitaryRepos.length,
   'local-llm': localLLMRepos.length,
   devtools: devToolsRepos.length,
+  manual: manualMinedRepos.length,
 };
 
 interface FiltersProps {

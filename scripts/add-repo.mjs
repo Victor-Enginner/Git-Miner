@@ -22,6 +22,7 @@ const ARRAYS = {
   gov: 'govMilitaryRepos',
   'local-llm': 'localLLMRepos',
   devtools: 'devToolsRepos',
+  manual: 'manualMinedRepos',
   all: 'originalFeatured',
 };
 
@@ -67,6 +68,14 @@ function toEntry(r, { category, badge, description, country }) {
   return `  {\n${lines.join('\n')}\n  }`;
 }
 
+// Só o array de destino conta para duplicata: o mesmo repo pode estar numa categoria temática e em "manual".
+function arrayBlock(src, arrayName) {
+  const start = src.indexOf(`export const ${arrayName}: FeaturedRepo[] = [`);
+  if (start < 0) return '';
+  const end = src.indexOf(String.fromCharCode(10) + '];', start);
+  return src.slice(start, end < 0 ? undefined : end);
+}
+
 // Novos repos entram no TOPO do array: a aba "Destaques" mostra só os 6 primeiros de cada seção.
 function insert(src, arrayName, entry) {
   const marker = `export const ${arrayName}: FeaturedRepo[] = [`;
@@ -99,8 +108,8 @@ async function main() {
       const arr = ARRAYS[it.category];
       if (!arr) throw new Error(`categoria inválida "${it.category}" (${Object.keys(ARRAYS).join(', ')})`);
       const r = await fetchRepo(parseRepo(it.repo), tk);
-      if (src.toLowerCase().includes(`full_name: '${r.full_name.toLowerCase()}'`)) {
-        fail.push(`${r.full_name}: já existe no featured.ts`);
+      if (arrayBlock(src, arr).toLowerCase().includes(`full_name: '${r.full_name.toLowerCase()}'`)) {
+        fail.push(`${r.full_name}: já existe em ${it.category}`);
         continue;
       }
       src = insert(src, arr, toEntry(r, it));
